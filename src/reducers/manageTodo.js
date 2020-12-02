@@ -1,8 +1,13 @@
 export default function manageTodo(state = {
-  todos: [],
+  todos: [
+    {text: "Homework"},
+    {text: "Do the dishes"}
+  ],
 }, action) {
-
-  console.log("reducer received this action:", action);
-
-  return state;
+  switch(action.type){
+    case 'ADD_TODO':
+      return { todos: state.todos.concat(action.payload) };
+    default:
+      return state;
+  }
 }
